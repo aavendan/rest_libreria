@@ -5,7 +5,7 @@
   "scripts": {
     "packages:install": "npm install sequelize pg && npm install --save-dev sequelize-cli",
     "swagger-autogen": "node swagger.js",
-    "db:reset": "npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all", 
+    
     "start": "npm run packages:install && npm run db:reset && node ./bin/www",
     "prev:start": "node ./bin/www"
   },
