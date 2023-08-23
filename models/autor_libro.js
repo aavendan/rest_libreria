@@ -4,6 +4,7 @@ module.exports = function(sequelize, DataTypes) {
     autor_idautor: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      primaryKey: true,
       references: {
         model: 'autor',
         key: 'idautor'
@@ -12,6 +13,7 @@ module.exports = function(sequelize, DataTypes) {
     libro_idlibro: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      primaryKey: true,
       references: {
         model: 'libro',
         key: 'idlibro'
@@ -22,6 +24,15 @@ module.exports = function(sequelize, DataTypes) {
     tableName: 'autor_libro',
     timestamps: false,
     indexes: [
+      {
+        name: "PRIMARY",
+        unique: true,
+        using: "BTREE",
+        fields: [
+          { name: "autor_idautor" },
+          { name: "libro_idlibro" },
+        ]
+      },
       {
         name: "fk_autor_libro_autor_idx",
         using: "BTREE",
